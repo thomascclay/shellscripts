@@ -22,7 +22,7 @@ update_root_deps() {
   deps=$(jq -r '[.dependencies, .devDependencies] | add | keys[]' package.json | tr '\n' ' ')
   if [ -n "$deps" ]; then
     echo "updating $deps"
-    yarn add --workspace-root $deps
+    yarn add -W $deps
   else
     echo "No dependencies found."
   fi
